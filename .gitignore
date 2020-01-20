@@ -1,0 +1,16 @@
+**/.tmp/
+**/glob-manifest.json
+**/coverage/
+**/dist/
+**/.cache-loader
+node_modules/
+build/
+.DS_Store
+.idea
+npm-debug.log
+.vscode
+/SOURCE/
+*.less.d.ts
+package-lock.json
+open-utils/js/
+yarn-error.log

@@ -1,0 +1,54 @@
+{
+  "accounts": [
+    {
+      "accountNumber": "40702810400000006706",
+      "typeTitle": "Расчетный",
+      "accountTitle": "Расчётный счёт ООО \"РИА\"",
+      "organizationId": 15328807535,
+      "currency": "810",
+      "amount": 1087468.9,
+      "overdraftLimit": 0,
+      "hasRestrictions": false
+    },
+    {
+      "accountNumber": "40702810600000048302",
+      "typeTitle": "Расчетный",
+      "accountTitle": "Расчётный счёт ООО \"РИА\"",
+      "organizationId": 15328807535,
+      "currency": "810",
+      "amount": 156454.96,
+      "overdraftLimit": 0,
+      "hasRestrictions": false
+    },
+    {
+      "accountNumber": "40702810400000047406",
+      "typeTitle": "Расчетный",
+      "accountTitle": "Расчётный счёт ООО \"РИА\"",
+      "organizationId": 15328807535,
+      "currency": "810",
+      "amount": 10357543.7,
+      "overdraftLimit": 0,
+      "hasRestrictions": false
+    }
+  ],
+  "messages": [
+    {
+      "id": 1,
+      "text": "Test test test23",
+      "senderId": 33,
+      "createdAt": "2020-01-20T18:36:03+03:00"
+    },
+    {
+      "text": "dsfsf",
+      "senderId": 65,
+      "createdAt": "2020-01-20T19:28:03+03:00",
+      "id": 2
+    },
+    {
+      "text": "Tested fdfs fsfsfs",
+      "senderId": 65,
+      "createdAt": "2020-01-20T20:36:03+03:00",
+      "id": 3
+    }
+  ]
+}
