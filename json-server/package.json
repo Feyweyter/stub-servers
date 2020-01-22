@@ -1,0 +1,10 @@
+{
+  "name": "json-server-test",
+  "version": "0.0.1",
+  "devDependencies": {
+    "faker": "^4.1.0",
+    "json-server": "^0.15.1",
+    "moment": "^2.24.0",
+    "nodemon": "^2.0.2"
+  }
+}

@@ -30,24 +30,57 @@ const getOperations = (accountNumber) => {
     return operations;
 };
 
+// Проверить авторизацию
+const isAuthorized = (res) => {
+   return true;
+};
+
 // Set default middlewares (logger, static, cors and no-cache)
 server.use(middlewares);
 
-// Add custom routes before JSON Server router
+// Добавить правила в роутер
+server.use(jsonServer.rewriter({
+    '/api/*': '/$1',
+}));
+
+// Добавить кастомные пути в роутер
 server.get('/operations', (req, res) => {
     res.jsonp(getOperations(req.query.accountNumber))
 });
 
+server.use((req, res, next) => {
+    if (isAuthorized(req)) { // add your authorization logic here
+        next() // continue to JSON Server router
+    } else {
+        res.sendStatus(401);
+    }
+});
 
 // To handle POST, PUT and PATCH you need to use a body-parser
 // You can use the one used by JSON Server
 server.use(jsonServer.bodyParser);
 
+// Для получения изображения
+server.post('/image', (req, res, next) => {
+    res.sendStatus(200);
+    next();
+});
+
 server.post('/messages', (req, res, next) => {
-    req.body.createdAt = moment().format();
+    let userId = req.body['senderId'];
+    if (userId != null && userId >= 0) {
+        req.body.createdAt = moment().format();
+    } else {
+        // Проставить свой статус код ответа
+        res.status(400).jsonp({
+            error: "No valid senderId"
+        });
+    }
     // Continue to JSON Server router
     next();
 });
+
+
 
 // Use default router
 server.use(router);
