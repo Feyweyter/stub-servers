@@ -1,0 +1,138 @@
+{
+    "source": "mockoon:1.7.0",
+    "data": [
+        {
+            "type": "environment",
+            "item": {
+                "uuid": "",
+                "lastMigration": 9,
+                "name": "Bank Example API",
+                "endpointPrefix": "api",
+                "latency": 0,
+                "port": 3000,
+                "routes": [
+                    {
+                        "uuid": "",
+                        "documentation": "Create a user",
+                        "method": "post",
+                        "endpoint": "users",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "{\n  \"firstname\": \"{{body 'firstname'}}\",\n  \"lastname\": \"{{body 'lastname'}}\",\n  \"status\": \"{{body 'status'}}\"\n}",
+                                "latency": 0,
+                                "statusCode": "201",
+                                "label": "Success",
+                                "headers": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [
+                                    {
+                                        "target": "body",
+                                        "modifier": "firstname",
+                                        "value": ".+",
+                                        "isRegex": true
+                                    }
+                                ]
+                            },
+                            {
+                                "uuid": "",
+                                "body": "{\n  \"Error\": \"firstname is required\"\n}",
+                                "latency": 0,
+                                "statusCode": "400",
+                                "label": "Missing data",
+                                "headers": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [
+                                    {
+                                        "target": "body",
+                                        "modifier": "firstname",
+                                        "value": "^$",
+                                        "isRegex": true
+                                    }
+                                ]
+                            }
+                        ],
+                        "enabled": true
+                    },
+                    {
+                        "uuid": "",
+                        "documentation": "Add operations list for selected account",
+                        "method": "get",
+                        "endpoint": "operations",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "[\n    {\n        \"date\": \"2020-01-22\",\n        \"currency\": \"810\",\n        \"documents\": [\n            {{#repeat 3}}\n                {\n                    \"documentId\": \"{{guid}}\",\n                    \"documentNum\": \"{{int 0 1000}}\",\n                    \"amount\": \"-{{float 0 100000 round=0.01}}\",\n                    \"paymentDesc\": \"{{lorem}}\",\n                    \"accountNumber\": \"{{queryParam 'accountNumber'}}\"\n                }\n            {{/repeat}}\n        ]\n    },\n    {{#repeat 2}}\n        {\n            \"date\": \"{{date '2020-01-01' '2020-01-22' 'YYYY-MM-DD'}}\",\n            \"currency\": \"810\",\n            \"documents\": [\n                {{#repeat 3}}\n                    {\n                        \"documentId\": \"{{guid}}\",\n                        \"documentNum\": \"{{int 0 1000}}\",\n                        \"amount\": \"-{{float 0 100000 round=0.01}}\",\n                        \"paymentDesc\": \"{{lorem}}\",\n                        \"accountNumber\": \"{{queryParam 'accountNumber'}}\"\n                    }\n                {{/repeat}}\n            ]\n        }\n    {{/repeat}}\n]",
+                                "latency": 0,
+                                "statusCode": "200",
+                                "label": "",
+                                "headers": [
+                                    {
+                                        "key": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [
+                                    {
+                                        "target": "query",
+                                        "modifier": "accountNumber",
+                                        "value": "\\\\d+",
+                                        "isRegex": true
+                                    }
+                                ]
+                            },
+                            {
+                                "uuid": "",
+                                "body": "{}",
+                                "latency": 0,
+                                "statusCode": "401",
+                                "label": "",
+                                "headers": [
+                                    {
+                                        "key": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [
+                                    {
+                                        "target": "query",
+                                        "modifier": "accountNumber",
+                                        "value": "\\\\d+",
+                                        "isRegex": true
+                                    }
+                                ]
+                            }
+                        ],
+                        "enabled": true
+                    }
+                ],
+                "proxyMode": false,
+                "proxyHost": "",
+                "https": false,
+                "cors": true,
+                "headers": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ]
+            }
+        }
+    ]
+}
