@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!--<title>SSE Client Example</title>-->
+    <title>WebSocket example</title>
+  </head>
+  <body>
+    <h1>SSE Client Example</h1>
+
+    <script>
+     const eventSource = new EventSource('sse');
+      eventSource.addEventListener('number', function (e) {
+        console.log('number event:', e.data)
+      })
+     /* const socket = new WebSocket('ws://127.0.0.1:8000/')
+      socket.onopen = function () {
+        socket.send('Trivial example')
+      }*/
+    </script>
+  </body>
+</html>

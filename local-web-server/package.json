@@ -1,0 +1,9 @@
+{
+  "name": "local-web-server-test",
+  "version": "0.0.1",
+  "devDependencies": {
+    "faker": "^4.1.0",
+    "local-web-server": "^3.0.7",
+    "ws": "^7.2.1"
+  }
+}
