@@ -12,4 +12,4 @@ class Websocket {
     }
 }
 
-module.exports = Websocket
+module.exports = Websocket;

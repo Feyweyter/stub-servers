@@ -15,7 +15,7 @@ const generateUsers = (amount = 5) => {
         --amount;
     }
     return users;
-}
+};
 
 const fakeServerWrapper = {
     init: function() {
@@ -23,7 +23,7 @@ const fakeServerWrapper = {
 
         this.fs = sinon.createFakeServer({autoRespond: true});
         this.fs.xhr.useFilters = true;
-        
+
         // Если фильтр возвратит true, запрос не будет сэмулирован, а пойдет на настоящий сервер
         this.fs.xhr.addFilter(
             function(method, url, async, username, password) {

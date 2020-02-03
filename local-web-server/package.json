@@ -3,7 +3,10 @@
   "version": "0.0.1",
   "devDependencies": {
     "faker": "^4.1.0",
+    "koa-route": "^3.2.0",
     "local-web-server": "^3.0.7",
+    "lws": "^2.0.8",
+    "lws-body-parser": "^1.0.2",
     "ws": "^7.2.1"
   }
 }
