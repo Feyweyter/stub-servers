@@ -21,7 +21,7 @@ function App() {
         userData && <div className="App">
             <p><span className="title">login: </span>{userData.login}</p>
             <p><span className="title">name: </span>{userData.name}</p>
-            <img className="img-github" src={userData.avatar_url}/>
+            <img className="img-github" src={userData.avatar_url} alt="avatar"/>
             <p><span className="title">followers: </span>{userData.followers}</p>
             <p><span className="title">following: </span>{userData.following}</p>
         </div>
