@@ -9,11 +9,11 @@
   "comments": [
     {
       "id": 1,
-      "body": "some comment",
+      "body": "Some new comment",
       "postId": 1
     }
   ],
   "profile": {
-    "name": "typicode"
+    "name": "Mary"
   }
 }

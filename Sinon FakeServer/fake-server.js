@@ -10,7 +10,7 @@ const generateUsers = (amount = 5) => {
             fullName: faker.name.findName(),
             email: faker.internet.email(),
             country: faker.address.country(),
-            phoneNumber: faker.phone.phoneNumber()
+            phoneNumber: `+7${faker.phone.phoneNumber()}`
         });
         --amount;
     }
@@ -21,10 +21,12 @@ const fakeServerWrapper = {
     init: function() {
         faker.locale = "ru"; //Устанавливаем локаль
 
+        // Создаем сервер
         this.fs = sinon.createFakeServer({autoRespond: true});
         this.fs.xhr.useFilters = true;
 
-        // Если фильтр возвратит true, запрос не будет сэмулирован, а пойдет на настоящий сервер
+        // Если фильтр возвратит true, запрос не будет сэмулирован,
+        // а пойдет на настоящий сервер
         this.fs.xhr.addFilter(
             function(method, url, async, username, password) {
                 return (new RegExp(externalHost)).test(url);
@@ -35,7 +37,8 @@ const fakeServerWrapper = {
                 const users = generateUsers(3);
                 xhr.respond(200, //Устанавливаем любой статус код ответа
                     { "Content-Type": "application/json" }, JSON.stringify(users));
-            });
+            }
+        );
 
         this.fs.respondWith("GET", /\/users\/(\d+)/,
             (xhr, id) => {
@@ -43,7 +46,8 @@ const fakeServerWrapper = {
                 xhr.respond(200, //Устанавливаем любой статус код ответа
                     { "Content-Type": "application/json" },
                     JSON.stringify({...users[0], id})); //Заменяем id на полученный
-            });
+            }
+        );
     },
 
     restore: function() {

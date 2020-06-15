@@ -44,6 +44,12 @@ class Users {
                 ctx.response.status = 201;
                 ctx.response.set('Location', `/users/${newUser.id}`);
             }),
+            router.put('/users', function (ctx) {
+                ctx.response.status = 405;
+            }),
+            router.delete('/users', function (ctx) {
+                ctx.response.status = 405;
+            }),
             router.get('/users/:id', function (ctx, id) {
                 ctx.response.type = 'json';
                 ctx.response.body = users.find(user => user.id === Number(id));

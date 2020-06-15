@@ -5,8 +5,7 @@ class Websocket {
 
         wss.on('connection', socket => {
             socket.on('message', message => {
-                console.log(`Received: ${message}`);
-                socket.send("Wow, that's great");
+                socket.send(`"${message}"? Yep, that's right`);
             })
         })
     }
