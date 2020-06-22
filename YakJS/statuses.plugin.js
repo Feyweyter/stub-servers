@@ -2,7 +2,7 @@
 
 /* eslint-disable no-empty-function, no-unused-vars */
 
-const STATUSES_ARRAY = ['success', 'fail', 'waiting'];
+const STATUSES_ARRAY = ['success', 'fail', 'warning'];
 
 const getRandomInt = (max) => {
   return Math.floor(Math.random() * Math.floor(max));
