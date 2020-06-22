@@ -1,6 +1,8 @@
 # Stub servers examples
 
-There are some examples of using stub servers.
+There are some examples of using stub servers.  
+You can find more on https://www.youtube.com/channel/UCY79UvNdT7btJ-9U6hal_Pw
+
 
 ## [Mockoon example](https://github.com/Feyweyter/stub-servers/tree/master/Mockoon)  
 Main project page: https://mockoon.com/  
@@ -40,6 +42,6 @@ More examples you can find on https://github.com/mitmproxy/mitmproxy/tree/master
 ___
 
 
-Not stub server, just example from presentation  
+Not stub server, just an example from a presentation  
 ## [github example app](https://github.com/Feyweyter/stub-servers/tree/master/github-app)  
 Simple example for fetching data from [api.github.com](api.github.com) in ```create-react-app```.
