@@ -26,7 +26,7 @@ const getOperations = (accountNumber) => {
                 amount: (!faker.random.boolean() ? '-' : '') +
                     faker.random.number({precision: 0.01, min: 1, max: 100000}),
                 paymentDesc: faker.lorem.sentence(),
-                accountNumber //Добавим требуемый accountNumber
+                accountNumber // Add required accountNumber
             });
         }
         operations.push({date, currency: '810', documents});
@@ -54,7 +54,7 @@ const getChat = (chatId) => {
 	return messages;
 };
 
-// Проверить авторизацию
+// Check authorization
 const isAuthorized = (res) => {
    return true;
 };
@@ -62,26 +62,24 @@ const isAuthorized = (res) => {
 // Set default middlewares (logger, static, cors and no-cache)
 server.use(middlewares);
 
-// Добавить правила в роутер
+// Add rules to router
 server.use(jsonServer.rewriter({
     '/api/*': '/$1',
 }));
 
-// Добавить кастомные пути в роутер (/operations?accountNumber={number})
+// Add custom route /operations?accountNumber={number}
 server.get('/operations', (req, res) => {
-	console.log(req.query);
     res.jsonp(getOperations(req.query.accountNumber))
 });
 
-// Добавить кастомные пути в роутер (/operations)
+// Add custom route /chat
 server.get('/chat', (req, res) => {
-	console.log(req.query);
     res.jsonp(getChat(req.query.id))
 });
 
 server.use((req, res, next) => {
-    if (isAuthorized(req)) { // Добавить свою логику авторизации
-        next() // Продолжаем
+    if (isAuthorized(req)) { // Add own authorization logic
+        next(); // Continue
     } else {
         res.sendStatus(401);
     }
@@ -91,7 +89,6 @@ server.use((req, res, next) => {
 // You can use the one used by JSON Server
 server.use(jsonServer.bodyParser);
 
-// Для получения изображения
 server.post('/image', (req, res, next) => {
     res.sendStatus(200);
     next();
@@ -99,11 +96,11 @@ server.post('/image', (req, res, next) => {
 
 server.post('/messages', (req, res, next) => {
     const userId = req.body['senderId'];
-    // Проверим, передан ли senderId
+    // Check senderId
     if (userId) {
         req.body.createdAt = moment().format();
     } else {
-        // Проставить свой статус код ответа
+        // Add status code
         res.status(400).jsonp({
             error: "No valid senderId"
         });
