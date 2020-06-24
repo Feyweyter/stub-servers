@@ -1,12 +1,12 @@
 # Stub servers examples
 
 There are some examples of using stub servers.  
-You can find more on https://www.youtube.com/channel/UCY79UvNdT7btJ-9U6hal_Pw
+You can find more info on https://www.youtube.com/channel/UCY79UvNdT7btJ-9U6hal_Pw
 
 
 ## [Mockoon example](https://github.com/Feyweyter/stub-servers/tree/master/Mockoon)  
-Main project page: https://mockoon.com/  
-You can import example in Mockoon's format.
+Main page: https://mockoon.com/  
+Install Mockoon and import this example in Mockoon's format.
 
 
 ## [Sinon FakeServer example](https://github.com/Feyweyter/stub-servers/tree/master/Sinon%20FakeServer)
@@ -35,13 +35,13 @@ Main page: https://github.com/lwsjs/local-web-server
 ## [Mitmdump examples](https://github.com/Feyweyter/stub-servers/tree/master/mitmdump-examples)
 Main page: https://mitmproxy.readthedocs.io/en/v2.0.2/introduction.html  
 Prepare your workspace and install Mitmproxy and Python (last version).  
-```mitmdump -s replace_response.py```  
+Next: ```mitmdump -s replace_response.py```  
 More examples you can find on https://github.com/mitmproxy/mitmproxy/tree/master/examples.  
 
 
 ___
 
 
-Not stub server, just an example from a presentation  
+Not stub server, just an example from a presentation:  
 ## [github example app](https://github.com/Feyweyter/stub-servers/tree/master/github-app)  
-Simple example for fetching data from [api.github.com](api.github.com) in ```create-react-app```.
+Simple example of fetching data from [api.github.com](api.github.com) in ```create-react-app```.
